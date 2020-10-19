@@ -41,7 +41,7 @@ public class Category {
 		this.parentId = parentId;
 	}
 
-	public Boolean getIsParsent() {
+	public Boolean getIsParent() {
 		return isParent;
 	}
 
