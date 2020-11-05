@@ -7,6 +7,7 @@ import com.leyou.item.pojo.SpecParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -45,5 +46,10 @@ public class SpecificationService {
         SpecParam param = new SpecParam();
         param.setGroupId(gid);
         return mSpecParamMapper.select(param);
+    }
+
+    @Transactional
+    public void saveParam(SpecParam specParam) {
+        mSpecParamMapper.insert(specParam);
     }
 }

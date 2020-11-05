@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by jing_tian on 2020/9/28.
@@ -26,5 +27,11 @@ public class CategoryService {
         Category category = new Category();
         category.setParentId(pid);
         return mCategoryMapper.select(category);
+    }
+
+
+    public List<String> queryNamesByIds(List<Long> ids) {
+        List<Category> categories = this.mCategoryMapper.selectByIdList(ids);
+        return categories.stream().map(category -> category.getName()).collect(Collectors.toList());
     }
 }

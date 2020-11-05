@@ -62,7 +62,7 @@ public class SpecParam {
     }
 
     public String getUnit() {
-        return unit == null ? "" : unit;
+        return unit;
     }
 
     public void setUnit(String unit) {
@@ -86,7 +86,7 @@ public class SpecParam {
     }
 
     public String getSegments() {
-        return segments == null ? "" : segments;
+        return segments;
     }
 
     public void setSegments(String segments) {
