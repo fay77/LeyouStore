@@ -6,10 +6,13 @@ import com.leyou.item.pojo.Spu;
 import com.leyou.item.service.GoodsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -42,5 +45,12 @@ public class GoodsController {
         }
         return ResponseEntity.ok(result);
 
+    }
+
+
+    @PostMapping("goods")
+    public ResponseEntity<Void> saveGoods(@RequestBody SpuBo spuBo) {
+        this.mGoodsService.saveGoods(spuBo);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
